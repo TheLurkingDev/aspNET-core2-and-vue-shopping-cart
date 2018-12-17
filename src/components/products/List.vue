@@ -10,6 +10,13 @@
                 <hr />
             </div>
         </div>
+        <div v-if="selectedProduct" class="details">
+            <h1>{{ selectedProduct.name }}</h1>
+            <img :src="selectedProduct.thumbnail" :alt="selectedProduct.name">
+            <p>{{ selectedProduct.shortDescription }}</p>
+            <p>{{ selectedProduct.description }}</p>
+            <p>{{ selectedProduct.price }}</p>
+        </div>
     </div>
 </template>
 
@@ -40,5 +47,32 @@ export default {
 </script>
 
 <style>
+    * {
+        box-sizing: border-box !important;
+    }
 
+    .products {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .list, .details {
+        width: 50%;
+        float: left;
+    }
+
+    .list .item {
+        width: 50%;
+        float: left;
+        padding: 20px 10px 20px 0;
+    }
+
+    .list img, .list h3, .list p {
+        cursor: pointer;
+    }
+
+    .list img {
+        width: 100px;
+    }
 </style>
